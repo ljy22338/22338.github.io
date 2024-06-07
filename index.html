@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <iframe src="dist/index.html"></iframe>
-  </body>
+<head>
+    <title>动态加载本地页面</title>
+    <script>
+        function loadLocalHTML() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'local.html', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('content').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body onload="loadLocalHTML()">
+    <h1>当前页面</h1>
+    <div id="content"></div>
+</body>
 </html>
+
