@@ -17,7 +17,7 @@ jobs:
       run: npm install && npm run build  # 确保你有一个构建脚本
 
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-actio n@4
+      uses: JamesIves/github-pages-deploy-action@4
       with:
         branch: ljy-pages
         folder: dist  # 发布目录
