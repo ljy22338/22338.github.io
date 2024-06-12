@@ -10,7 +10,8 @@ export default defineConfig({
     title: '小🐟的地摊',
     
   },
-  
+  esbuildMinifyIIFE: true,
+
   routes: [
     {
       path: '/',

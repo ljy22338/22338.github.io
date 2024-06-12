@@ -22,16 +22,7 @@ jobs:
         branch: ljy-pages # 创建性的分支、将dist中的文件复制到该分支
         folder: dist  # 发布目录
         
-    # - name: 登录DockerHub
-    #   uses: docker/login-action@v3
-    #   with:
-    #       username: ${{secrets.DOCKER_HUB_USERNAME}}
-    #       password: ${{secrets.DOCKER_HUB_TOKEN}}
-    # - name: 构建并发送到Docker Hub
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #     push: true
-    #     tags: liujianyu233/ljy-pages:latest
+
 
 # name: 构建镜像并推送到Docker Hub
 
