@@ -7,12 +7,15 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '@umijs/max',
+    title: '小🐟的地摊',
+    
   },
+  
   routes: [
     {
       path: '/',
-      redirect: '/home',
+      redirect: '/Home',
+      
     },
     {
       name: '首页',
@@ -20,15 +23,17 @@ export default defineConfig({
       component: './Home',
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
+      name: '笔记',
+      path:'/note',
+      component:'./Note'
     },
     {
-      name: ' CRUD 示例',
-      path: '/table',
-      component: './Table',
+      name: 'Openai api 测试',
+      path: '/openai-test',
+      component: './OpenAI-Test',
     },
+ 
+
   ],
   npmClient: 'pnpm',
 });

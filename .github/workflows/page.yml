@@ -1,31 +1,9 @@
-# name: 构建并部署React页面
-
-# on: push # push的时候激活
-
-# permissions:
-#   contents: write # 授予工作流对仓库内容的写入权限。
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: 读取仓库内容
-#       uses: actions/checkout@v4 # 用于检出（checkout）代码库到工作流（workflow）中的工作目录
-
-#     - name: 构建
-#       run: npm install && npm run build  # 确保你有一个构建脚本
-
-#     - name: 部署
-#       uses: JamesIves/github-pages-deploy-action@v4
-#       with:
-#         branch: ljy-pages # 创建性的分支、将dist中的文件复制到该分支
-#         folder: dist  # 发布目录
-
-
-name: 构建镜像并推送到Docker Hub
+name: 构建并部署React页面
 
 on: push # push的时候激活
+
+permissions:
+  contents: write # 授予工作流对仓库内容的写入权限。
 
 jobs:
   deploy:
@@ -34,6 +12,16 @@ jobs:
     steps:
     - name: 读取仓库内容
       uses: actions/checkout@v4 # 用于检出（checkout）代码库到工作流（workflow）中的工作目录
+
+    - name: 构建
+      run: npm install && npm run build  # 确保你有一个构建脚本
+
+    - name: 部署
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: ljy-pages # 创建性的分支、将dist中的文件复制到该分支
+        folder: dist  # 发布目录
+        
     - name: 登录DockerHub
       uses: docker/login-action@v3
       with:
@@ -44,3 +32,26 @@ jobs:
       with:
         push: true
         tags: liujianyu233/ljy-pages:latest
+
+# name: 构建镜像并推送到Docker Hub
+
+# on: push # push的时候激活
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: 读取仓库内容
+#       uses: actions/checkout@v4 # 用于检出（checkout）代码库到工作流（workflow）中的工作目录
+
+#     - name: 登录DockerHub
+#       uses: docker/login-action@v3
+#       with:
+#           username: ${{secrets.DOCKER_HUB_USERNAME}}
+#           password: ${{secrets.DOCKER_HUB_TOKEN}}
+#     - name: 构建并发送到Docker Hub
+#       uses: docker/build-push-action@v5
+#       with:
+#         push: true
+#         tags: liujianyu233/ljy-pages:latest
