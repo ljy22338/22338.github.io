@@ -11,6 +11,7 @@ export default defineConfig({
     
   },
   
+  esbuildMinifyIIFE: true,
   routes: [
     {
       path: '/',
