@@ -1,12 +1,13 @@
-import { request, useRequest } from "@/.umi/plugin-request";
-import { useEffect, useState } from "react";
+
+import { request } from "@umijs/max";
+import { useRequest } from "@umijs/max";
+import {  useState } from "react";
 
 function App() {
     const [ip, setIP] = useState('');
     const [locatoin,setLocation]=useState('');
     const { data, error, loading } = useRequest(async () => {
         const ip_response= await request('https://api.ipify.org?format=json');
-        
         const location_response= await request('/api/api/ipinfo?ip='+ip_response.ip);
         setIP(ip_response.ip)
         const region=location_response.region;
