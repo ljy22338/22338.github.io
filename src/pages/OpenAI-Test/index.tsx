@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { OpenAI } from 'openai';
-import { Button, Form, Input } from 'antd';
+import { Form, Input, Button } from 'antd/es';
 
 // const sdk = 'sk-BV9BwfND57gXtimP2cB6454fE33b4dBbB52c26B66563Cb3c'
 // const baseURL="https://api.xty.app/v1"

@@ -1,7 +1,7 @@
-const NotePage: React.FC=()=>{
-    return(
-        <>小🐟</>
-        
-    );
-} 
-export default  NotePage;
+
+ 
+const App=()=>{
+ 
+  }
+   
+  export default App
