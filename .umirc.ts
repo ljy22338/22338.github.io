@@ -11,7 +11,13 @@ export default defineConfig({
     
   },
   esbuildMinifyIIFE: true,
-
+  proxy: {
+    '/api': {
+      'target': 'https://uapis.cn',
+      'changeOrigin': true,
+      'pathRewrite': { '^/api' : '' },
+    },
+  },
   routes: [
     {
       path: '/',
@@ -27,6 +33,11 @@ export default defineConfig({
       name: '笔记',
       path:'/note',
       component:'./Note'
+    },
+    {
+      name: 'IP测试',
+      path:'/ip-test',
+      component:'./IP-Test'
     },
     {
       name: 'Openai api 测试',
